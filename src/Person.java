@@ -3,7 +3,7 @@ import java.util.Optional;
 public class Person {
 
     private String name;
-    private Integer age;
+    private int age = 0;
     private String gender;
 
     public Person() {}
@@ -31,8 +31,8 @@ public class Person {
         this.name = name;
     }
 
-    public Optional getAge() {
-        return Optional.ofNullable(this.age);
+    public int getAge() {
+        return this.age;
     }
 
     public void setAge(int age) {
@@ -49,7 +49,7 @@ public class Person {
 
     @Override
     public String toString() {
-        return "This is " + getName().orElse("nameless") + " and is " + getAge().orElse("none") + " years old " + getGender().orElse(" and has no genitals");
+        return "This is " + getName().orElse("nameless") + " and is " + getAge() + " years old " + getGender().orElse(" and has no genitals");
     }
 
     public static class PersonBuilder {
