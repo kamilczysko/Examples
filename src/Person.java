@@ -23,8 +23,8 @@ public class Person {
 
     }
 
-    public Optional getName() {
-        return Optional.ofNullable(this.name);
+    public String getName() {
+        return this.name;
     }
 
     public void setName(String name) {
@@ -49,7 +49,11 @@ public class Person {
 
     @Override
     public String toString() {
-        return "This is " + getName().orElse("nameless") + " and is " + getAge() + " years old " + getGender().orElse(" and has no genitals");
+        return "This is " + Optional.ofNullable(getName()).orElse("nameless")+ " and is " + getAge() + " years old " + getGender().orElse(" and has no genitals");
+    }
+
+    public void addYear(){
+        this.age++;
     }
 
     public static class PersonBuilder {
