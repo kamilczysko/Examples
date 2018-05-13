@@ -27,6 +27,9 @@ public class DoubleColon {
         people.add(new Person("asd", 12, "d"));
         people.add(new Person("bob", 16, "d"));
         people.add(new Person("qqqw", 33, "c"));
+        people.add(new Person("bob", 83, "2"));
+        people.add(new Person("bob", 33, "4"));
+
         people.add(new Person("qqqw", 33, "c"));
         people.add(new Person("asd", 16, "d"));
 
@@ -63,12 +66,13 @@ public class DoubleColon {
 //        });
 
 
-        Optional<Person> resList = people.stream().filter(p -> p.getName().equals("bob")).findFirst();
-        System.out.println(resList);
+//        List<Person> resList = people.stream().filter(p -> p.getName().equals("bob")).collect(Collectors.toList());
+        Optional<Person> resList = people.stream().filter(p -> p.getName().equals("bob")).findAny();
 //        Predicate<Person> pred = p -> p.getAge() > 34 &&  p.getAge() < 60;
 //        List<Person> c = people.stream().filter(pred).collect(Collectors.toList());
-//        System.out.println("*******************");
-//        c.forEach(a -> System.out.println(a));
+        System.out.println("*******************");
+        System.out.println(resList.get());
+//        resList.forEach(a -> System.out.println(a));
 
 
 
